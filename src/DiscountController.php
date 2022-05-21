@@ -1,13 +1,11 @@
 <?php
 
 namespace Abolfazlrastegar\LaravelDiscount;
-use Abolfazlrastegar\LaravelDiscount\models\Discount;
-use Abolfazlrastegar\LaravelDiscount\models\HistoryDiscount;
+use Abolfazlrastegar\LaravelDiscount\Models\Discount;
+use Abolfazlrastegar\LaravelDiscount\Models\HistoryDiscount;
 use App\Http\Controllers\Controller;
-use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class DiscountController extends Controller
@@ -74,7 +72,7 @@ class DiscountController extends Controller
         ]);
     }
 
-    public function statusDiscount (Request $request) {
+    public function statusDiscount(Request $request) {
         $status = Discount::query()->where('id', '=', $request->get('discount_id'))
             ->update(['approved' => $request->get('status')]);
         if ($status) {
