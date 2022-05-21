@@ -8,7 +8,7 @@ return [
     ],
 
     "url" => [
-        "all_user" => 'all-users',
+        "discounts-user" => 'discounts/user',
         "users_discount" => 'users/discount'
     ],
 
