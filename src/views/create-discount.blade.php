@@ -76,7 +76,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-                                                    <a href="{{asset('') . config('discount.url.all_user') . '?discount_id=' . $discount->id}}" class="btn btn-primary">نمایش همه کاربران</a>
+                                                    <a href="{{route(config('discount.url.users_discount'), ['discount_id' => $discount->id])}}" class="btn btn-primary">نمایش همه کاربران</a>
                                                 </div>
                                             </div>
                                         </div>
