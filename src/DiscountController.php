@@ -95,9 +95,9 @@ class DiscountController extends Controller
             ->get();
     }
 
-    public function getUserOneDiscount (Request $request) {
+    public function getUserOneDiscount ($discount_id) {
         $users_discount = HistoryDiscount::query()
-           ->with(['user', 'discount'])->where('discount_id', '=', $request->get('discount_id'))
+           ->with(['user', 'discount'])->where('discount_id', '=', $discount_id)
            ->paginate(config('discount.paginate'));
 
         return view('discount::users-discount', ['users_discount', $users_discount]);
