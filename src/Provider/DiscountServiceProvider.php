@@ -2,10 +2,7 @@
 
 namespace Abolfazlrastegar\LaravelDiscount\Provider;
 
-use Abolfazlrastegar\LaravelDiscount\components\CreateDiscount;
-use Abolfazlrastegar\LaravelDiscount\DiscountController;
-use Hekmatinasser\Verta\Laravel\VertaServiceProvider;
-use Illuminate\Foundation\AliasLoader;
+use Abolfazlrastegar\LaravelDiscount\Components\CreateDiscount;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
