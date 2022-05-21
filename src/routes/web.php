@@ -5,5 +5,5 @@ Route::namespace('\Abolfazlrastegar\LaravelDiscount')->group(function () {
    Route::post('create', 'DiscountController@create');
    Route::get('remove/discount/{id}', 'DiscountController@removeDiscount');
    Route::get('discount/status', 'DiscountController@statusDiscount');
-   Route::get('user-discounts', 'DiscountController@getUserOneDiscount');
+   Route::get('users/discount/{discount_id}', 'DiscountController@getUserOneDiscount');
 });
