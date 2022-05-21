@@ -8,14 +8,14 @@
 
 ### Publish and run migrations
 ```bash
- php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" --tage="migrations" 
+ php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" --tag="migrations" 
  
  php artisan migrate
 ```
 
 ### Publish for customize view 
 ```bash
- php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" --tage="views" 
+ php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" --tag="views" 
 ```
 
 ### Call components view
