@@ -5,8 +5,6 @@
     <link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-default.css')}}">
     <link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-dark.css')}}">
 @endpush
-<link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-default.css')}}">
-<link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-dark.css')}}">
 <div class="container-fluid" style="direction: rtl">
     <div class="row">
         <div class="col-12">
