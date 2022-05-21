@@ -68,7 +68,7 @@
                                                                 <td>{{$history->user->name}}</td>
                                                                 <td>{{\Morilog\Jalali\CalendarUtils::strftime('Y-m-d', strftime($history->created_at))}}</td>
                                                                 <td>{{$history->section_used}}</td>
-                                                                <td><a href="{{asset('') . config('discount.url.user_discounts') . '?user_id=' . $history->user->id}}" class="btn btn-primary"> همه کد تخفیف های استفاده کرده </a></td>
+                                                                <td><a href="{{asset('') . config('discount.url.discounts-user') . '/' . $history->user->id}}" class="btn btn-primary"> همه کد تخفیف های استفاده کرده </a></td>
                                                             </tr>
                                                         @endforeach
                                                         </tbody>
@@ -76,7 +76,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن</button>
-                                                    <a href="{{route(config('discount.url.users_discount'), ['discount_id' => $discount->id])}}" class="btn btn-primary">نمایش همه کاربران</a>
+                                                    <a href="{{asset('') . config('discount.url.users_discount') . '/' .$discount->id}}" class="btn btn-primary">نمایش همه کاربران</a>
                                                 </div>
                                             </div>
                                         </div>
