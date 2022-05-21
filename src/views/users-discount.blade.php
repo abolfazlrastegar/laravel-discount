@@ -1,3 +1,4 @@
+@section('title', 'users discount')
 @extends(config('discount.layouts'))
 @section('content')
     @if(config('discount.public.bootstrap'))
