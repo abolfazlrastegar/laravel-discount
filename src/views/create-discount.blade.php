@@ -1,6 +1,10 @@
-@if(config('discount.public.bootstrap'))
-    <link rel="stylesheet" href="{{asset('vendor/discount/css/bootstrap.min.css')}}">
-@endif
+@push('head')
+    @if(config('discount.public.bootstrap'))
+        <link rel="stylesheet" href="{{asset('vendor/discount/css/bootstrap.min.css')}}">
+    @endif
+    <link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-default.css')}}">
+    <link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-dark.css')}}">
+@endpush
 <link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-default.css')}}">
 <link rel="stylesheet" href="{{asset('vendor/discount/css/persianDatepicker-dark.css')}}">
 <div class="container-fluid" style="direction: rtl">
@@ -187,11 +191,13 @@
         </div>
     </div>
 </div>
-@if(config('discount.public.bootstrap'))
-    <script src="{{asset('vendor/discount/js/jquery-3.2.1.slim.min.js')}}"></script>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="{{asset('vendor/discount/js/sweetalert2@11.js')}}"></script>
-    <script src="{{asset('vendor/discount/js/bootstrap.min.js')}}"></script>
-@endif
-<script src="{{asset('vendor/discount/js/persianDatepicker.min.js')}}"></script>
-<script src="{{asset('vendor/discount/js/discount.js')}}"></script>
+@push('footer')
+    @if(config('discount.public.bootstrap'))
+        <script src="{{asset('vendor/discount/js/jquery-3.2.1.slim.min.js')}}"></script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+        <script src="{{asset('vendor/discount/js/sweetalert2@11.js')}}"></script>
+        <script src="{{asset('vendor/discount/js/bootstrap.min.js')}}"></script>
+    @endif
+    <script src="{{asset('vendor/discount/js/persianDatepicker.min.js')}}"></script>
+    <script src="{{asset('vendor/discount/js/discount.js')}}"></script>
+@endpush
