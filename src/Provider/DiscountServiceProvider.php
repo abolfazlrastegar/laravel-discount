@@ -16,9 +16,6 @@ class DiscountServiceProvider extends ServiceProvider
 //        $this->app->singleton('discount', function ($app) {
 //                return new DiscountController();
 //        });
-        $this->app->register(VertaServiceProvider::class);
-        $loader = AliasLoader::getInstance();
-        $loader->alias('Verta', \Hekmatinasser\Verta\Facades\Verta::class);
     }
 
     public function boot()
