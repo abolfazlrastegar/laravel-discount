@@ -81,7 +81,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{$history_discounts->links()}}
+                        {{$users_discount->links()}}
                     </div>
                 </div>
             </div>
