@@ -1,6 +1,6 @@
 <?php
 
-namespace Abolfazlrastegar\LaravelDiscount\components;
+namespace Abolfazlrastegar\LaravelDiscount\Components;
 
 use Abolfazlrastegar\LaravelDiscount\DiscountController;
 use Illuminate\View\Component;
