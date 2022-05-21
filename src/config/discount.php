@@ -10,5 +10,9 @@ return [
     "url" => [
         "all_user" => 'all-users',
         "user_discounts" => 'user-discounts'
-    ]
+    ],
+
+    "paginate" => "40",
+
+    "layouts" => 'welcome'
 ];
