@@ -9,7 +9,7 @@ return [
 
     "url" => [
         "all_user" => 'all-users',
-        "user_discounts" => 'user-discounts'
+        "users_discount" => 'users/discount'
     ],
 
     "paginate" => "40",
