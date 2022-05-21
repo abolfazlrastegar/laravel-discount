@@ -1,6 +1,6 @@
 <?php
 
-namespace Abolfazlrastegar\LaravelDiscount\models;
+namespace Abolfazlrastegar\LaravelDiscount\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
