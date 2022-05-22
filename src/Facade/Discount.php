@@ -6,5 +6,8 @@ use Illuminate\Support\Facades\Facade;
 
 class Discount extends Facade
 {
-    protected static function getFacadeAccessor() { return 'Discount'; }
+    protected static function getFacadeAccessor()
+    {
+        return 'discount';
+    }
 }
