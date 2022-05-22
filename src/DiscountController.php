@@ -127,7 +127,7 @@ class DiscountController extends Controller
            ->with(['user', 'discount'])->where('discount_id', '=', $discount_id)
            ->paginate(config('discount.paginate'));
 
-        return view('discount::users-discount', ['users_discount', $users_discount]);
+        return view('discount::users-discount', ['users_discount' => $users_discount]);
     }
 
 
