@@ -38,8 +38,8 @@ function createCodeDiscount(element) {
 }
 
 
-function removeDiscount(id) {
-    $.ajax({url: "remove/discount/" + id,
+function removeDiscount(id, prefix) {
+    $.ajax({url: prefix + "/remove/discount/" + id,
         success: function(result){
             if (result.status === 200) {
                 swal.fire({
@@ -65,8 +65,8 @@ function removeDiscount(id) {
 }
 
 
-function statusDiscount(id, status) {
-    $.ajax({url: "discount/status?discount_id=" + id + '&status=' + status,
+function statusDiscount(id, status, prefix) {
+    $.ajax({url: prefix + "/discount/status?discount_id=" + id + '&status=' + status,
         success: function(result){
             if (result.status === 200) {
                 swal.fire({
