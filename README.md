@@ -10,7 +10,7 @@ You can use this to create a discount code and it displays the discount code and
 
 ### Publish provider and run migrations
 ```bash
- php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" 
+ php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" --force 
  
  php artisan migrate
 ```
