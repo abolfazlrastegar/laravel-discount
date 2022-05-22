@@ -115,13 +115,13 @@
                                                         </div>
                                                         <div class="col-6">
                                                             <label>تاریخ شروع</label>
-                                                            <input type="text" class="form-control edit-1-start_date" value="{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strftime($discount->start_date))}}" placeholder="تاریخ شروع" onclick="datepicker(['.edit-1-start_date', '#edit-1-start_date'])">
-                                                            <input type="hidden" name="end_date" id="edit-1-start_date">
+                                                            <input type="text" class="form-control edit-{{$discount->id}}-start_date" value="{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strftime($discount->start_date))}}" placeholder="تاریخ شروع" onclick="datepicker(['.edit-{{$discount->id}}-start_date', '#edit-{{$discount->id}}-start_date'])">
+                                                            <input type="hidden" name="end_date" id="edit-{{$discount->id}}-start_date">
                                                         </div>
                                                         <div class="col-6">
                                                             <label>تاریخ پایان</label>
-                                                            <input type="text" class="form-control edit-1-end_date" value="{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strftime($discount->end_date))}}" placeholder="تاریخ پایان" onclick="datepicker(['.edit-1-end_date', '#edit-1-end_date'])">
-                                                            <input type="hidden" name="end_date" id="edit-1-end_date">
+                                                            <input type="text" class="form-control edit-{{$discount->id}}-end_date" value="{{\Morilog\Jalali\CalendarUtils::strftime('Y/m/d', strftime($discount->end_date))}}" placeholder="تاریخ پایان" onclick="datepicker(['.edit-{{$discount->id}}-end_date', '#edit-{{$discount->id}}-end_date'])">
+                                                            <input type="hidden" name="end_date" id="edit-{{$discount->id}}-end_date">
                                                         </div>
                                                     </div>
                                                 </div>
