@@ -5,6 +5,8 @@ return [
 
     "layouts" => 'welcome',
 
+    "prefix_database" => "arzland_",
+
     "url" => [
         "prefix" => 'admin',
         "discounts-user" => 'discounts/user',
