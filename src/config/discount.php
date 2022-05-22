@@ -5,8 +5,6 @@ return [
 
     "layouts" => 'welcome',
 
-    "" => '',
-
     "url" => [
         "prefix" => 'admin',
         "discounts-user" => 'discounts/user',
