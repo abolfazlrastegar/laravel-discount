@@ -73,10 +73,10 @@ class DiscountController extends Controller
      * @param $section_used
      * @return bool
      */
-    public static function historyDiscount ($discount_id, $section_used) {
+    public static function historyDiscount ($discount_id, $user_id, $section_used) {
         $history_discount = new HistoryDiscount();
         $history_discount->discount_id = $discount_id;
-        $history_discount->user_id = Auth::id();
+        $history_discount->user_id = $user_id;
         $history_discount->section_used = $section_used;
         return $history_discount->save();
     }
@@ -142,5 +142,28 @@ class DiscountController extends Controller
             ->select('*')
             ->selectRaw("(SELECT count(`hid`.`id`) FROM `".config('discount.prefix_database')."history_discounts` AS hid WHERE `hid`.`discount_id` = `".config('discount.prefix_database')."discounts`.`id`) AS 'discunt_used'")
             ->paginate(config('discount.paginate'));
+    }
+
+    public static function validationDiscount ($code, $user_id) {
+        $discount = Discount::query()->with(['historyDiscount' => function($query) {
+            $query->select(['id', 'user_id', 'discount_id']);
+        }])
+            ->select('*')
+            ->selectRaw("(SELECT count(`hid`.`id`) FROM `".config('discount.prefix_database')."history_discounts` AS hid WHERE `hid`.`discount_id` = `".config('discount.prefix_database')."discounts`.`id`) AS 'discunt_used'")
+            ->where('code', '=', $code)
+            ->first();
+
+        $discount = $discount->toArray();
+        $history_discount = [];
+        foreach ($discount['history_discount'] as $item) {
+            array_push( $history_discount, $item['user_id']);
+        }
+        if ($discount['end_date'] > date('Y-m-d')) {
+            if (in_array($user_id, $history_discount) && $discount['quantity'] > $discount['discunt_used'] && $discount['approved'] == 1) {
+                return $discount['id'];
+            }
+            return false;
+        }
+        return  false;
     }
 }
