@@ -5,7 +5,7 @@ return [
 
     "layouts" => 'welcome',
 
-    "prefix_database" => "arzland_",
+    "prefix_database" => "",
 
     "url" => [
         "prefix" => 'admin',
