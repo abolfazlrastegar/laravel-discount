@@ -3,6 +3,7 @@
 namespace Abolfazlrastegar\LaravelDiscount\Provider;
 
 use Abolfazlrastegar\LaravelDiscount\Components\CreateDiscount;
+use Abolfazlrastegar\LaravelDiscount\DiscountController;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
@@ -10,9 +11,9 @@ class DiscountServiceProvider extends ServiceProvider
 {
     public function register()
     {
-//        $this->app->singleton('discount', function ($app) {
-//                return new DiscountController();
-//        });
+        $this->app->bind('discount', function ($app) {
+            return new DiscountController();
+        });
     }
 
     public function boot()
