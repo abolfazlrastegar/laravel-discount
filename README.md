@@ -17,7 +17,8 @@
 ```bash
  php artisan vendor:publish --provider="Abolfazlrastegar\LaravelDiscount\Provider\DiscountServiceProvider" --tag="views" 
 ```
-
+@stack('head')
+@stack('footer')
 ### Call components view
 ```bash
       //call blade create-discount for create one discount and list discount
