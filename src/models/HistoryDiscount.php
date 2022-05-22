@@ -2,7 +2,6 @@
 
 namespace Abolfazlrastegar\LaravelDiscount\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,6 +22,6 @@ class HistoryDiscount extends Model
     }
 
     public function user() {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(config('path_model') . User::class);
     }
 }
