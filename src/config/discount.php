@@ -7,6 +7,8 @@ return [
 
     "prefix_database" => "",
 
+    "path_model" => "App\Models\\",
+
     "url" => [
         "prefix" => 'admin',
         "discounts-user" => 'discounts/user',
