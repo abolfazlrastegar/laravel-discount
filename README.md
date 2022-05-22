@@ -31,7 +31,7 @@ DiscountController::edit(Request $request); // edit one code discount
 
 DiscountController::getDiscount(); // Show all discount created
 
-DiscountController::validationDiscount('code', 1) // Validation discount code used user
+DiscountController::validationDiscount('code', Auth::id()) // Validation discount code used user
 
 DiscountController::historyDiscount(8, Auth::id(), 'wallet'); // Save report used discount codes
 
