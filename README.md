@@ -1,4 +1,5 @@
 #Laravel discount package
+#You can use this to create a discount code and it displays the discount code and deactivates editing and uses bootstrap for the template
 
 
 ### Install package for laravel 7+
