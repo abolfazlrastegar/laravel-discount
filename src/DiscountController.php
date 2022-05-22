@@ -41,6 +41,33 @@ class DiscountController extends Controller
         return $validation->errors();
     }
 
+    public function edit (Request $request) {
+        $validation = Validator::make($request->all(), [
+            'code' => 'required|string',
+            'quantity' => 'required|numeric',
+            'price' => 'required|string',
+        ]);
+
+        if (!$validation->fails()) {
+            $discount = Discount::find($request->get('discountId'));
+            $discount->code = $request->get('code');
+            $discount->quantity = $request->get('quantity');
+            $discount->price = str_replace(',', '', $request->get('price'));
+            $discount->start_date = $request->get('start_date');
+            $discount->end_date = $request->get('end_date');
+            if ($discount->save()) {
+                return response()->json([
+                    'status' => 200,
+                    'message' => 'کد تخفیف مورد نظر شما ویرایش شد'
+                ]);
+            }
+            return response()->json([
+                'status' => 200,
+                'message' => 'عملیات مورد نظر شما انجام نشد لطفا دوباره انجام بدید.'
+            ]);
+        }
+        return $validation->errors();
+    }
     /**
      * @param $discount_id
      * @param $section_used
