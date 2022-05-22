@@ -19,11 +19,39 @@ You can use this to create a discount code and it displays the discount code and
 ```bash
  <x-Discount-create-discount></x-discount-create-discount>  
 ```
-### call js and css
+### Call js and css
 ```bash
 @stack('head') // copy paste at tag head layout html  
 
  @stack('footer') // copy paste at last page layout html
+```
+### Config 
+```bash
+    "paginate" => "40",
+
+    "layouts" => 'welcome', // set html layouts projects 
+
+    "prefix_database" => "arzland_", // If you have a database prefix
+
+    "url" => [
+        "prefix" => 'admin', If you have a url prefix
+        "discounts-user" => 'discounts/user', // route show code discounts one user 
+        "users_discount" => 'users/discount' // route show users one code discount
+    ],
+    
+     // if you used from files for themes website == false
+    "file" => [
+       "display" => [
+           "bootstrap-css" => true,
+           "bootstrap-js" => true,
+           "persianDatepicker-default" => true,
+           "persianDatepicker-dark" => true,
+           "jquery" => true,
+           "ajax" => true,
+           "sweetalert2" => true,
+           "persianDatepicker-js" => true,
+       ]
+    ]
 ```
 ### Usage
 ```bash
