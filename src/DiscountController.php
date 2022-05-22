@@ -140,7 +140,7 @@ class DiscountController extends Controller
             $query->with(['user']);
         }])
             ->select('*')
-            ->selectRaw("(SELECT count(`hid`.`id`) FROM `history_discounts` AS hid WHERE `hid`.`discount_id` = `discounts`.`id`) AS 'discunt_used'")
+            ->selectRaw("(SELECT count(`hid`.`id`) FROM `".config('discount.prefix_database')."history_discounts` AS hid WHERE `hid`.`discount_id` = `".config('discount.prefix_database')."discounts`.`id`) AS 'discunt_used'")
             ->paginate(config('discount.paginate'));
     }
 }
