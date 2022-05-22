@@ -1,18 +1,31 @@
 <?php
 return [
-    /**
-     * if you used from bootstrap for themes website
-     */
-    "public" => [
-        "bootstrap" => true
-    ],
+
+    "paginate" => "40",
+
+    "layouts" => 'welcome',
+
+    "" => '',
 
     "url" => [
+        "prefix" => 'admin',
         "discounts-user" => 'discounts/user',
         "users_discount" => 'users/discount'
     ],
 
-    "paginate" => "40",
-
-    "layouts" => 'welcome'
+    /**
+     * if you used from files for themes website == false
+     */
+    "file" => [
+       "display" => [
+           "bootstrap-css" => true,
+           "bootstrap-js" => true,
+           "persianDatepicker-default" => true,
+           "persianDatepicker-dark" => true,
+           "jquery" => true,
+           "ajax" => true,
+           "sweetalert2" => true,
+           "persianDatepicker-js" => true,
+       ]
+    ]
 ];
