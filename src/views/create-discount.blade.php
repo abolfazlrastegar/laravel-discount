@@ -42,7 +42,7 @@
                                             <div class="modal-dialog modal-lg">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title h4" id="myLargeModalLabel1">کد تخفیف جدید</h5>
+                                                        <h5 class="modal-title h4" id="myLargeModalLabel1">نمایش کابران که از این <span class="text-warning">{{$discount->code}}</span> کد تخفیف استفاده کردن </h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">×</span>
                                                         </button>
@@ -55,7 +55,7 @@
                                                                 <th scope="col">نام و نام خوادگی</th>
                                                                 <th scope="col">تاریخ استفاده</th>
                                                                 <th scope="col">بخش استفاده</th>
-                                                                <th scope="col"></th>
+                                                                <th scope="col">عملیات</th>
                                                             </tr>
                                                             </thead>
                                                             <tbody>
@@ -91,7 +91,7 @@
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title h4" id="myLargeModalLabel">کد تخفیف جدید</h5>
+                                                <h5 class="modal-title h4" id="myLargeModalLabel"> ویرایش کد تخفیف  <span class="text-warning">{{$discount->code}}</span></h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
