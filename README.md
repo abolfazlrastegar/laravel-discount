@@ -31,7 +31,7 @@ You can use this to create a discount code and it displays the discount code and
 
     "layouts" => 'welcome', // set html layouts projects 
 
-    "prefix_database" => "arzland_", // If you have a database prefix
+    "prefix_database" => "", // If you have a database prefix
 
     "url" => [
         "prefix" => 'admin', If you have a url prefix
