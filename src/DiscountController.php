@@ -160,7 +160,10 @@ class DiscountController extends Controller
         }
         if ($discount['end_date'] > date('Y-m-d')) {
             if (in_array($user_id, $history_discount) && $discount['quantity'] > $discount['discunt_used'] && $discount['approved'] == 1) {
-                return $discount['id'];
+                return [
+                    'id' => $discount['id'],
+                    'price' => $discount['price']
+                ];
             }
             return false;
         }
