@@ -80,11 +80,11 @@
                                     </div>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".edit-{{$discount->id}}">ویرایش</button>
                                     @if($discount->approved)
-                                        <button type="button" class="btn btn-warning" onclick="statusDiscount({{$discount->id}}, 0)">غیر فعال</button>
+                                        <button type="button" class="btn btn-warning" onclick="statusDiscount({{$discount->id}}, 0, '{{config('discount.prefix')}}')">غیر فعال</button>
                                     @else
-                                        <button type="button" class="btn btn-success" onclick="statusDiscount({{$discount->id}}, 1)">فعال</button>
+                                        <button type="button" class="btn btn-success" onclick="statusDiscount({{$discount->id}}, 1, '{{config('discount.prefix')}}')">فعال</button>
                                     @endif
-                                    <button type="button" class="btn btn-danger" onclick="removeDiscount({{$discount->id}})">حذف</button>
+                                    <button type="button" class="btn btn-danger" onclick="removeDiscount({{$discount->id}}, '{{config('discount.prefix')}}')">حذف</button>
                                 </td>
                             </tr>
                             <div class="modal fade edit-{{$discount->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -96,7 +96,8 @@
                                                 <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
-                                        <form autocomplete="off" id="edit-discount-{{$discount->id}}" method="POST" action="edit-discount?type=edit&discountId={{$discount->id}}">
+                                        <form autocomplete="off" id="edit-discount-{{$discount->id}}" method="POST" action="{{config('discount.prefix')}}/edit-discount?type=edit&discountId={{$discount->id}}">
+                                            @csrf
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <div class="col-6">
@@ -149,7 +150,8 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <form autocomplete="off" id="insert_discount" method="POST" action="create?type=insert">
+                <form autocomplete="off" id="insert_discount" method="POST" action="{{config('discount.prefix')}}/create?type=insert">
+                   @csrf
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-6">
