@@ -18,6 +18,7 @@ class CreateDiscountsTable extends Migration
             $table->id();
             $table->string('code', 50);
             $table->integer('quantity');
+            $table->integer('percent');
             $table->decimal('price', 11, 2);
             $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'));
