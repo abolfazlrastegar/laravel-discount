@@ -28,19 +28,49 @@ You can use this to create a discount code and it displays the discount code and
 ```
 ### Config 
 ```bash
+    /*
+     |------------------------------------------------------
+     |  paginate limit for query page
+     |-------------------------------------------------------
+     */
     "paginate" => "40",
+     "limit" => "30",
 
-    "layouts" => 'welcome', // set html layouts projects 
+    /*
+     |------------------------------------------------------
+     |  layouts html
+     |-------------------------------------------------------
+     */
+    "layouts" => 'welcome',
 
-    "prefix_database" => "", // If you have a database prefix
+    /*
+     |------------------------------------------------------
+     |  prefix in database
+     |-------------------------------------------------------
+     */
+    "prefix_database" => '',
 
-    "url" => [
-        "prefix" => 'admin', If you have a url prefix
-        "discounts-user" => 'discounts/user', // route show code discounts one user 
-        "users_discount" => 'users/discount' // route show users one code discount
-    ],
-    
-     // if you used from files for themes website == false
+    /*
+     |------------------------------------------------------
+     |  namespace model
+     |-------------------------------------------------------
+     */
+    "namespace_model_user" => \App\Models\User::class,
+
+    /*
+     |------------------------------------------------------
+     |  group route
+     |-------------------------------------------------------
+     */
+    "middleware" => ['web'],
+    "prefix" => 'admin',
+
+    /*
+     |------------------------------------------------------
+     | assets
+     |-------------------------------------------------------
+     | show file css and js if used from this file  => false
+     */
     "file" => [
        "display" => [
            "bootstrap-css" => true,
