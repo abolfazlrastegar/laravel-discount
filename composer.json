@@ -1,7 +1,8 @@
 {
     "name": "abolfazlrastegar/laravel-discount",
-    "description": "The Laravel Framework.",
+    "description": "library code discount for Laravel Framework.",
     "keywords": ["discount", "laravel", "code-discount"],
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
