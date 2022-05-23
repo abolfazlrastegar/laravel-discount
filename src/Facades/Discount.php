@@ -1,6 +1,6 @@
 <?php
 
-namespace Abolfazlrastegar\LaravelDiscount\Facade;
+namespace Abolfazlrastegar\LaravelDiscount\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
