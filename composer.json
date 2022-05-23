@@ -24,7 +24,7 @@
                 "Abolfazlrastegar\\LaravelDiscount\\Provider\\DiscountServiceProvider"
             ],
             "aliases": {
-                "Discount": "Abolfazlrastegar\\LaravelDiscount\\Facade\\Discount"
+                "Discount": "Abolfazlrastegar\\LaravelDiscount\\Facades\\Discount"
             }
         }
     }
