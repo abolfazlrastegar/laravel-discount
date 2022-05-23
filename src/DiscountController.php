@@ -19,6 +19,7 @@ class DiscountController extends Controller
             'code' => 'required|string',
             'quantity' => 'required|numeric',
             'price' => 'required|string',
+            'percent' => 'required|numeric',
             'start_date' => 'required|date',
             'end_date' => 'required|date'
         ]);
@@ -27,6 +28,7 @@ class DiscountController extends Controller
             $discount = new Discount();
             $discount->code = $request->get('code');
             $discount->quantity = $request->get('quantity');
+            $discount->percent = $request->get('percent');
             $discount->price = str_replace(',', '', $request->get('price'));
             $discount->start_date = $request->get('start_date');
             $discount->end_date = $request->get('end_date');
@@ -45,6 +47,7 @@ class DiscountController extends Controller
         $validation = Validator::make($request->all(), [
             'code' => 'required|string',
             'quantity' => 'required|numeric',
+            'percent' => 'required|numeric',
             'price' => 'required|string',
         ]);
 
@@ -52,6 +55,7 @@ class DiscountController extends Controller
             $discount = Discount::find($request->get('discountId'));
             $discount->code = $request->get('code');
             $discount->quantity = $request->get('quantity');
+            $discount->percent = $request->get('percent');
             $discount->price = str_replace(',', '', $request->get('price'));
             $discount->start_date = $request->get('start_date');
             $discount->end_date = $request->get('end_date');
