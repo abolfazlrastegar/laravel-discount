@@ -113,7 +113,7 @@ DiscountController::statusDiscount(8); // Switching status one code discount
   "percent": 50
 }
 
-// used user form ecde discount
+// user used code discount
 {
   "user": true
 }
