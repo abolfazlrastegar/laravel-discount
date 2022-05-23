@@ -3,6 +3,7 @@
 You can use this to create a discount code and it displays the discount code and deactivates editing and uses bootstrap for the template
 
 ![alt text](https://github.com/abolfazlrastegar/laravel-discount/blob/main/discount.png?raw=true)
+![Watch the video](https://www.awesomescreenshot.com/video/9036482?key=a5033c273e7f1703641225a4477ca7ee?raw=true)
 
 ### Install package for laravel 7+
 ```bash
