@@ -22,6 +22,6 @@ class HistoryDiscount extends Model
     }
 
     public function user() {
-        return $this->belongsTo(config('path_model') . User::class);
+        return $this->belongsTo(config('discount.namespace_model_user'));
     }
 }
