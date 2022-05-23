@@ -47,8 +47,8 @@ class DiscountController extends Controller
         $validation = Validator::make($request->all(), [
             'code' => 'required|string',
             'quantity' => 'required|numeric',
-            'percent' => 'required|numeric',
             'price' => 'required|string',
+            'percent' => 'required|numeric',
         ]);
 
         if (!$validation->fails()) {
@@ -90,13 +90,13 @@ class DiscountController extends Controller
      * @return mixed
      */
     public function removeDiscount ($discount_id) {
-       $delete = Discount::query()->where('id', '=', $discount_id)->delete();
-       if ($delete) {
-           return response()->json([
-               'status' => 200,
-               'message' => 'کد تخفیف مورد نظر شما حذف شد.'
-           ]);
-       }
+        $delete = Discount::query()->where('id', '=', $discount_id)->delete();
+        if ($delete) {
+            return response()->json([
+                'status' => 200,
+                'message' => 'کد تخفیف مورد نظر شما حذف شد.'
+            ]);
+        }
         return response()->json([
             'status' => 401,
             'message' => 'در انجام حذف کد تخفیف مورد نظر مشکلی پیش آمد.'
@@ -122,14 +122,16 @@ class DiscountController extends Controller
     public static function getDiscountUsedUser($user_id) {
         $discount_user = HistoryDiscount::query()->with(['discount'])
             ->where('user_id', '=', $user_id)
+            ->orderByDesc('created_at')
             ->paginate(config('discount.paginate'));
         return view('discount::discounts-user', ['discount_user' => $discount_user]);
     }
 
     public function getUserOneDiscount($discount_id) {
         $users_discount = HistoryDiscount::query()
-           ->with(['user', 'discount'])->where('discount_id', '=', $discount_id)
-           ->paginate(config('discount.paginate'));
+            ->with(['user', 'discount'])->where('discount_id', '=', $discount_id)
+            ->orderByDesc('created_at')
+            ->paginate(config('discount.paginate'));
         return view('discount::users-discount', ['users_discount' => $users_discount]);
     }
 
@@ -145,6 +147,7 @@ class DiscountController extends Controller
         }])
             ->select('*')
             ->selectRaw("(SELECT count(`hid`.`id`) FROM `".config('discount.prefix_database')."history_discounts` AS hid WHERE `hid`.`discount_id` = `".config('discount.prefix_database')."discounts`.`id`) AS 'discunt_used'")
+            ->orderByDesc('start_date')
             ->paginate(config('discount.paginate'));
     }
 
@@ -156,21 +159,24 @@ class DiscountController extends Controller
             ->selectRaw("(SELECT count(`hid`.`id`) FROM `".config('discount.prefix_database')."history_discounts` AS hid WHERE `hid`.`discount_id` = `".config('discount.prefix_database')."discounts`.`id`) AS 'discunt_used'")
             ->where('code', '=', $code)
             ->first();
-
-        $discount = $discount->toArray();
-        $history_discount = [];
-        foreach ($discount['history_discount'] as $item) {
-            array_push( $history_discount, $item['user_id']);
-        }
-        if ($discount['end_date'] > date('Y-m-d')) {
-            if (in_array($user_id, $history_discount) == 0 && $discount['quantity'] > $discount['discunt_used'] && $discount['approved'] == 1) {
-                return [
-                    'id' => $discount['id'],
-                    'price' => $discount['price']
-                ];
+        if ($discount) {
+            $discount = $discount->toArray();
+            $history_discount = [];
+            foreach ($discount['history_discount'] as $item) {
+                array_push( $history_discount, $item['user_id']);
             }
-            return false;
+            if ($discount['end_date'] > date('Y-m-d')) {
+                if (in_array($user_id, $history_discount) == 0 && $discount['quantity'] > $discount['discunt_used'] && $discount['approved'] == 1) {
+                    return [
+                        'id' => $discount['id'],
+                        'price' => (int)$discount['price'],
+                        'percent' => $discount['percent']
+                    ];
+                }
+                return ['user' => true];
+            }
+            return  ['date' => false];
         }
-        return  false;
+        return ['code' => false];
     }
 }
