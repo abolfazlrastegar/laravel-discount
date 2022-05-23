@@ -91,9 +91,9 @@ DiscountController::edit(Request $request); // edit one code discount
 
 DiscountController::getDiscount(); // Show all discount created
 
-DiscountController::validationDiscount('code', Auth::id()) // Validation discount code used user
-
 DiscountController::historyDiscount(8, Auth::id(), 'wallet'); // Save report used discount codes
+
+DiscountController::validationDiscount('code', Auth::id()) // Validation discount code used user
 
 DiscountController::getDiscountUsedUser(Auth::id()); // Show discount codes one user used
 
@@ -102,4 +102,24 @@ DiscountController::getUserOneDiscount(8); // Show users one code discount used
 DiscountController::removeDiscount(8); // Delete one discount created
 
 DiscountController::statusDiscount(8); // Switching status one code discount
+```
+
+### result function DiscountController::validationDiscount('code', Auth::id())
+```bash
+//validation ok
+{
+  "id": 2,
+  "price": 200000,
+  "percent": 50
+}
+
+// used user form ecde discount
+{
+  "user": true
+}
+
+// Expired period of use
+{
+  "date": false
+}
 ```
