@@ -9,7 +9,7 @@ class CreateDiscount extends Component
 {
     public function render()
     {
-        return view('discount::create-discount', [
+        return view('discount::components.create-discount', [
             'discounts' => DiscountController::getDiscount()
         ]);
     }
