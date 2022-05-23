@@ -126,10 +126,8 @@ class DiscountController extends Controller
         $users_discount = HistoryDiscount::query()
            ->with(['user', 'discount'])->where('discount_id', '=', $discount_id)
            ->paginate(config('discount.paginate'));
-
         return view('discount::users-discount', ['users_discount' => $users_discount]);
     }
-
 
     public static function getHistoryDiscount () {
         return HistoryDiscount::query()->with(['user', 'discount'])->paginate(config('discount.paginate'));
@@ -137,7 +135,9 @@ class DiscountController extends Controller
 
     public static function getDiscount () {
         return Discount::query()->with(['historyDiscount' => function($query) {
-            $query->with(['user']);
+            $query->with(['user' => function ($query) {
+                $query->limit(config('discount.limit'));
+            }]);
         }])
             ->select('*')
             ->selectRaw("(SELECT count(`hid`.`id`) FROM `".config('discount.prefix_database')."history_discounts` AS hid WHERE `hid`.`discount_id` = `".config('discount.prefix_database')."discounts`.`id`) AS 'discunt_used'")
